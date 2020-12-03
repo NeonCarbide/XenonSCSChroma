@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <title>XenonSCSChroma</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <script src="./js/Telemetry.js"></script>
+    <script src="./js/CSDKImplement.js"></script>
+    <script src="./js/TruckFX.js"></script>
+    <script src="./js/TestEffects.js"></script>
+    <script type="text/javascript">
+        var telemetry = new Telemetry();
+        var chromaSDK = new ChromaSDK();
+        var truckFX = new TruckFX();
+        var testEffect = new TestEffects();
+
+        function sleep(ms) {
+            var curr = new Date().getTime();
+            
+            while (curr + ms >= new Date().getTime()) {}
+        }
+
+        console.log(telemetry.isConnected());
+    </script>
+</head>
+<body onload="chromaSDK.init()" onunload="chromaSDK.uninit()">
+    <p><button onclick="testEffect.testEffect()">Test</button></p>
+    <p><button onclick="truckFX.test()">Electric</button></p>
+</body>
+</html>
